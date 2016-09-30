@@ -1,0 +1,71 @@
+<!doctype html>
+<html ng-app="tweetApp">
+    <head>
+        <meta charset="utf-8">
+        <title>AppDirect Coding Challenge</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link type="text/css" rel="stylesheet" href="./vendor/bootstrap/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="./common/css/font-awesome.min.css">
+
+        <link type="text/css" rel="stylesheet" href="./common/css/style.css">
+    </head>
+    <body ng-controller="tweetCtrl">
+        <h1>AppDirect Coding Challenge <button class="btn btn-defualt" data-toggle="modal" data-target="#configModal"><i class="fa fa-cog" aria-hidden="true"></i></span></h1>
+        <!-- Tweeter Panels -->
+        <div class="col-xs-12 col-sm-12 main-panel">
+          <div dv-Tweet-Panel title-Panel="titleColl[0].name" tweet-Collection="tweetCollection[0]"></div> 
+          <div dv-Tweet-Panel title-Panel="titleColl[1].name" tweet-Collection="tweetCollection[1]"></div> 
+          <div dv-Tweet-Panel title-Panel="titleColl[2].name" tweet-Collection="tweetCollection[2]"></div>
+        </div>
+        <!-- Modal Window-->
+        <div id="configModal" class="modal" role="dialog">
+          <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Tweet Panel Configration</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                    <label>Columns Title</label>
+                    <div><select ng-model="selectedName" ng-options="x for x in selectA">
+                    </select></div>
+                </div>
+                <div class="row">
+                     <label>The order of the columns</label>
+                    <div><input type="text" ui-stepper min="1" max="3" ng-model="tweetPanelOrder" step-size="1" /></div>
+                </div>
+                <div class="row">
+                     <label>Tweet Count</label>
+                    <div ><input type="text" ui-stepper min="1" max="30" ng-model="tweetCount" step-size="1" /></div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" ng-click="changePanel()" >Save</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+    </body>
+      <!-- Vendor Dependency -->
+    <script src="./vendor/jquery-1.12.1.min.js"></script>
+    <script src="./vendor/jquery-migrate-1.2.1.min.js"></script>
+    <script src="./vendor/angular.min.js"></script>
+    <script src="./vendor/bootstrap/js/bootstrap.min.js"></script>
+     <script src="./vendor/ui.stepper.js"></script>
+     <script src="./vendor/moment.js"></script>
+
+      <!-- Application Dependency -->
+     <script src="./tweetApp.js"></script>
+    <script src="./services/tweetService.js"></script>
+    <script src="./services/tweetFactory.js"></script>
+    <script src="./controller/tweetCtrl.js"></script>
+    
+    <!-- Application view Dependency -->
+    <script src="./views/dvTweetPanel.js"></script> 
+    <script src="./views/dvTweetPanelCtrl.js"></script> 
+    
+</html>

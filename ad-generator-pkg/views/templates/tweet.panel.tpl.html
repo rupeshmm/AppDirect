@@ -1,0 +1,14 @@
+<div class="card-panel col-sm-4">
+    <div class="title">@{{vm.titlePanel}} <span>Tweets: {{vm.tweetCollection[0].user.statuses_count}}</span></div>
+    <div class="card" ng-repeat="item in vm.tweetCollection">
+          <div class="card-img col-xs-2"><img src="{{item.user.profile_image_url}}" /></div>
+          <div class="card-block col-xs-10">
+            <h4 class="card-blockcard-block"><span>{{item.entities.user_mentions[0].name}}</span><span class="screen-name"><span ng-show="item.entities.user_mentions[1].screen_name.length>1">@</span>{{item.entities.user_mentions[1].screen_name}}</span><span class="date-f">{{getItemDate(item.created_at)}}</span></h4>
+            <p class="card-content">{{item.text}}</p>
+            <p class="tweet-link"></p>
+          </div>
+         <div class="card-footer col-xs-12"><ul><li><a href="#" title="Reply"><i class="fa fa-reply" aria-hidden="true"></i></a></li><li><a href="#" title="Retweet"><i class="fa fa-retweet" aria-hidden="true"></i></a><span class="count-space">{{item.retweet_count}}</span></li><li><a href="#" title="Like"><i class="fa fa-heart-o" aria-hidden="true"></i></a><span  class="count-space">{{item.favorite_count}}</span></li></ul></div>
+          <div class="clear-both"></div>
+    </div>
+</div>
+       
